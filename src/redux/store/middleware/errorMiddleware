@@ -1,0 +1,35 @@
+export const errorMiddleware = store => next => action => {
+    if (action.type.endsWith('/rejected')) {
+      const error = action.payload || action.error;
+      const { dispatch } = store;
+      
+      // Manejar diferentes tipos de errores
+      switch (error.code) {
+        case 'NETWORK_ERROR':
+          dispatch({ type: 'notification/showError', payload: 'Problema de conexión' });
+          break;
+        case 'UNAUTHORIZED':
+          dispatch({ type: 'auth/logout' });
+          dispatch({ type: 'notification/showError', payload: 'Sesión expirada' });
+          break;
+        default:
+          dispatch({ 
+            type: 'notification/showError', 
+            payload: error.message || 'Error desconocido' 
+          });
+      }
+      
+      // Opcional: Transformar el error antes de que llegue a los reducers
+      const transformedAction = {
+        ...action,
+        payload: {
+          ...error,
+          timestamp: new Date().toISOString()
+        }
+      };
+      
+      return next(transformedAction);
+    }
+    
+    return next(action);
+  };

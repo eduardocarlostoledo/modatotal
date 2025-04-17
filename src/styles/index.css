@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+/* Este archivo debe ser mínimo y no debe redefinir el body ni el :root */
+
+/* Fuente monoespaciada para bloques de código si es necesario */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

@@ -1,0 +1,21 @@
+.starsCalification{
+    display:flex;   
+}
+.star{
+    cursor:pointer;
+    transition: color 200ms;
+}
+input[type="radio"]{
+    display:none
+}
+
+@media screen and (max-width: 650px){
+    .starsCalification{
+
+        margin-top: 20px;
+    }
+    .star{
+        width: 30px;
+    }
+    
+}

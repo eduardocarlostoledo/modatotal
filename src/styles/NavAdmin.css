@@ -1,0 +1,235 @@
+/* Navbar Container */
+.p-navadmin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #000B1F;
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Main container */
+  .p-navadmin-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Brand/Logo */
+  .p-navadmin-brand {
+    color: #ffffff;
+    user-select: none;
+    margin: 0;
+    padding: 0 25px;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  /* Search Form */
+  .p-navadmin-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .p-navadmin-input {
+    width: 350px;
+    min-width: 250px;
+    height: 36px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 15px;
+    transition: background-color 0.2s;
+  }
+  
+  .p-navadmin-input:focus {
+    background-color: rgb(224, 220, 220);
+    outline: none;
+  }
+  
+  .p-navadmin-button {
+    width: 80px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(255, 6, 46);
+    color: white;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  
+  .p-navadmin-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Hamburger Menu Button aca podemos modificar el comportamiento*/
+  .p-navadmin-toggler {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 6px 8px;
+    cursor: pointer;
+    /* display: none; Hidden by default, shown on mobile */
+  }
+  
+  .p-navadmin-toggler-icon {
+    color: white;
+    font-size: 1.25rem;
+  }
+  
+  /* Offcanvas Menu */
+  .p-navadmin-offcanvas {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #000B1F;
+    transition: right 0.3s ease-in-out;
+    z-index: 1050;
+    overflow-y: auto;
+  }
+  
+  .p-navadmin-offcanvas.p-navadmin-show {
+    right: 0;
+  }
+  
+  /* Offcanvas Header */
+  .p-navadmin-offcanvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .p-navadmin-offcanvas-title {
+    color: white;
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  .p-navadmin-close {
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.25rem;
+  }
+  
+  /* Navigation Links */
+  .p-navadmin-nav {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  
+  .p-navadmin-item {
+    margin-bottom: 0.25rem;
+  }
+  
+  .p-navadmin-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  
+  .p-navadmin-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .p-navadmin-link svg {
+    font-size: 1.1rem;
+  }
+  
+  /* Footer Section */
+  .p-navadmin-footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .p-navadmin-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .p-navadmin-name-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  /* Backdrop for offcanvas */
+  .p-navadmin-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: none;
+  }
+  
+  .p-navadmin-show ~ .p-navadmin-backdrop {
+    display: block;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .p-navadmin-search {
+      margin-left: auto;
+      margin-right: 15px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .p-navadmin-toggler {
+      display: block;
+    }
+    
+    .p-navadmin-search {
+      display: none;
+    }
+    
+    .p-navadmin-container {
+      padding-right: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .p-navadmin-brand {
+      padding: 0 15px;
+      font-size: 1.25rem;
+    }
+    
+    .p-navadmin-offcanvas {
+      width: 280px;
+    }
+  }

@@ -1,0 +1,94 @@
+.chat-container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface); /* fondo del card */
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-medium);
+  overflow: hidden;
+  font-family: var(--font-family-base);
+}
+
+.chat-header {
+  background: var(--color-primary); /* encabezado suave */
+  color: var(--color-text);         /* marrón pinko */
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.chat-box {
+  height: 300px;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--color-bg); /* fondo del chat principal */
+}
+
+.chat-message {
+  max-width: 75%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: var(--color-accent); /* celeste clarito */
+  color: var(--color-dark);       /* texto oscuro */
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  
+  color: var(--color-text);
+}
+
+.typing-indicator {
+  font-size: 12px;
+  color: var(--color-text);
+  text-align: left;
+  padding-left: 10px;
+  font-style: italic;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid var(--color-lavender-gray);
+  padding: 10px;
+  background: var(--color-surface);
+}
+
+.input-field {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  background-color: var(--color-white);
+  color: var(--color-text);
+}
+
+.send-button {
+  background: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  padding: 8px 12px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.send-button:hover {
+  background: var(--color-accent);
+}

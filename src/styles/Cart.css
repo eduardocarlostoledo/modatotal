@@ -1,0 +1,144 @@
+  
+  /* Estilos base */
+  .carritoCompras {
+    margin: 180px auto 0 auto;
+
+    max-width: 1200px;
+
+    padding: 0 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Estado vacío */
+  .carritoCompras .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+  }
+  
+  .EmptyP {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  .buttonIrTienda {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .buttonIrTienda:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+  }
+  
+  /* Grid de productos */
+  .cart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .cart-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Botones de acción */
+  .botones_de_pago {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .ButtonCart {
+    
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ButtonCart:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+  }
+  
+  .ButtonDeleteAll {
+    
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .ButtonDeleteAll:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Loader */
+  .loader {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(189, 195, 199, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--secondary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin: 2rem auto;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .cart-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .ButtonCart,
+    .ButtonDeleteAll {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,28 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { font-family: 'Didact Gothic', sans-serif; font-weight: bold; }
+    .hombre { fill: #ffffff; }
+    .mujer { fill: #ffffff; }
+    .nino { fill: #ffffff; }
+    .corbata { fill: #8D542F; }
+    .texto1 { fill: #729CBD; font-size: 32px; }
+    .texto2 { fill: #DADDDD; font-size: 32px; }
+  </style>
+
+  <!-- Hombre -->
+  <rect x="30" y="40" width="50" height="80" rx="8" class="hombre"/>
+  <rect x="53" y="70" width="14" height="30" class="corbata"/>
+  <circle cx="55" cy="30" r="20" fill="#ffffff"/>
+
+  <!-- Mujer -->
+  <path d="M130 120 L115 60 L145 60 Z" class="mujer"/>
+  <circle cx="130" cy="30" r="20" fill="#ffffff"/>
+
+  <!-- Niño -->
+  <rect x="200" y="60" width="50" height="60" rx="8" class="nino"/>
+  <circle cx="225" cy="30" r="20" fill="#ffffff"/>
+
+  <!-- Texto -->
+  <text x="50%" y="180" class="text texto1" text-anchor="middle">MODA</text>
+  <text x="50%" y="220" class="text texto2" text-anchor="middle">TOTAL</text>
+</svg>

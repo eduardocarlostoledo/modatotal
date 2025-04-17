@@ -1,0 +1,280 @@
+
+.contenedor_profile{
+  margin-top: 150px;
+  width: 100%;
+  height: auto; 
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.Container {    
+    margin: 40px auto;
+     width: 60%;
+     min-height: 60%;
+     display: flex;
+     justify-content: space-around;
+     user-select: none;
+     color: var(--color-black)
+}
+
+.izquierda{ 
+    background-color: rgb(247, 247, 247);
+    height: auto;
+    width: 35%;
+    min-height: 370px;
+    border-right: 0.001em solid rgb(185, 179, 179);
+    text-align: justify;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.411);
+}
+
+
+.containerImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.ImagenProfile { 
+    width: 120px;
+    height: 120px;
+    border-radius: 50%
+}
+
+.InfoUser {
+    text-align: center;
+}
+
+.InfoUser-Name {
+ text-align: center;
+}
+
+.InfoUser-Name h3 {
+    font-size: 24px;
+ }
+.derecha {
+    background-color:  rgb(247, 247, 247);
+    height: auto;
+    width: 100%;
+    min-height: 370px;
+    padding-left: 10px;
+    padding-top: 20px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+
+}
+
+.modificar { 
+    background-color: rgb(247, 247, 247);    
+    width: 70%;
+    min-height: 370px;
+    border-right: 0.001em solid rgb(185, 179, 179);
+    text-align: justify;
+    border-radius: 0 20px 20px 0px;  /* border-radios: 0 20 20 0 deja bordes cuadrados y redondos */    
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.411);
+    padding-left: 50px;
+    padding-top: 20px;
+}
+
+.derecha h3 { 
+    font-size: 18px;
+}
+.derecha h4 { 
+    font-size: 20px;
+}
+
+.derecha a { 
+    text-decoration: none;
+}
+
+
+.hogar {
+    display: flex;
+    justify-content: space-between;
+}
+.hola {
+    
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: rgb(35, 113, 202);
+}
+
+.hola:hover {     
+    color:rgb(126, 96, 96);
+}
+
+
+.icono {
+    margin-right: 10px;
+}
+
+.prueba{ 
+    display: flex;
+    justify-content: space-around;
+}
+
+.sopapa {
+
+    text-align: center;    
+    
+}
+.inputs {
+    
+    border: 0.1em solid rgb(87, 84, 84);
+}
+.inputs:focus {
+    border-color: rgb(0, 0, 0);
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.logout { 
+    border: 0.5px solid rgba(0, 0, 0, 0.141);
+    background-color: rgb(247, 247, 247);
+    border-radius: 20px;
+    color:  rgb(35, 102, 179);
+    font-size: 19px;
+    margin-top: 3rem;    
+}
+
+.logout:hover { 
+    background-color:rgb(126, 96, 96);
+    border: none;
+    color: white;
+    font-size: 19px;
+}
+.cancel { 
+    border: 0.5px solid rgba(0, 0, 0, 0.141);
+    background-color: rgb(247, 247, 247);
+    border-radius: 20px;
+    color:  rgb(35, 102, 179);
+    font-size: 19px;
+    margin-top: 3rem;    
+}
+.modifi{ 
+    border: 0.5px solid rgba(0, 0, 0, 0.141);
+    background-color: rgb(247, 247, 247);
+    border-radius: 20px;
+    color:  rgb(35, 102, 179);
+    font-size: 19px;
+    margin-top: 8rem;    
+}
+.cancel:hover { 
+    background-color:rgb(126, 96, 96);
+    border: none;
+    color: white;
+    font-size: 19px;
+}
+.modifi:hover { 
+    background-color:rgb(126, 96, 96);
+    border: none;
+    color: white;
+    font-size: 19px;
+}
+.dashboard { 
+    border-radius: 5px;
+    border: 1px solid green;
+    color: green;
+}
+
+@media screen and (max-width: 650px){
+    
+    .tablaUsuario{
+        margin-left: 35px;
+        margin-top: 35px;
+    }
+    .contenedor_profile{
+        height: 50%;
+        margin-top: 100px;
+    }
+    .Container{
+        height: 30rem;
+        width: 95%;
+    }
+    .card-img-top{
+        width: 100px ;
+        height: 100px ;
+    }
+    .derecha {
+        padding-left: 10px;
+    }
+    
+    .logout{
+        margin-top: 6.3rem;
+     text-align: center;
+    }
+        
+     
+    .InfoUser{
+        text-align: center;
+    }
+
+   
+    .prueba{
+        display: flex;
+        flex-direction: column;
+    }
+    .icono {
+        margin-right: 2px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .Container{
+        height: 25rem;
+        width: 90%;
+    }
+    .logout{
+        margin-top: 5rem;
+        font-size: 13px;
+    }
+    .logout:hover{
+        background-color:rgb(126, 96, 96);
+        border: none;
+        color: white;
+        font-size: 13px;
+    }
+    .modifi{
+        font-size: 13px;
+        margin-top: 6.3rem;
+    }
+    .cancel{
+        font-size: 13px;
+        margin-top: 6.3rem;
+    }
+    .cancel:hover{
+        background-color:rgb(126, 96, 96);
+        border: none;
+        color: white;
+        font-size: 13px;
+    }
+    .modifi:hover{
+        background-color:rgb(126, 96, 96);
+        border: none;
+        color: white;
+        font-size: 13px;
+    }
+    .InfoUser{
+        font-size: 12px;
+    }
+    .modificar{
+        width: 56%;        
+    }
+    .tablaUsuario{
+        margin-left: -45px;
+        display: block;
+scale: 0.9;    }
+    
+    .city{
+        width: 30px;
+    }
+    .containerImg{
+        scale: 0.5;
+    }
+
+    
+}
+

@@ -1,0 +1,28 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.app-content {
+  flex: 1;
+  padding-top: 80px;   /* espacio para navbar fija */
+  padding-bottom: 40px; /* espacio para footer */
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .app-content {
+    padding-top: 70px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-content {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+}
