@@ -287,3 +287,32 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 350px) {
+  .home-container {    
+    padding: 1px;
+  }
+
+  
+  .hero-banner {    
+    margin-top: -105px;
+    
+    width: 100%;
+  }
+
+  .home-container .hero-content .h1 {
+    
+    margin-top: 200px;
+    font-size: 2rem;
+  }
+
+  .hero-content h1 {
+    margin-top: 200px;
+    font-size: 2rem;
+  }
+  .products-grid,
+  .categories-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}

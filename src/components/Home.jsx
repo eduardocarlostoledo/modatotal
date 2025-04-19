@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/Home.css";
 import { FaShippingFast, FaPercentage, FaLeaf, FaShoppingBag, FaHandsHelping } from "react-icons/fa";
@@ -31,7 +32,9 @@ export const Home = () => {
           <h1>Nueva Temporada Invierno ❄️</h1>
           <p>Elegí tu estilo. Envíos gratis a todo el país.</p>
           <motion.button className="shop-now-btn" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            Ver Colección
+          <Link to="/Products" className="navbar-link">              
+              <span>Tienda</span>
+            </Link>
           </motion.button>
         </div>
       </motion.section>
