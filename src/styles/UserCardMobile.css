@@ -1,0 +1,95 @@
+
+/* Estilos base */
+.user-table-mobile {
+    
+    display: block;
+    padding: 10px;
+    font-family: 'Didact Gothic', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+  
+  .user-table-search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-lavender-gray);
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 0.95rem;
+  }
+  
+  /* Tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 12px 10px;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  
+  th {
+    background-color: var(--color-surface);
+    color: var(--color-dark);
+    font-weight: bold;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Acciones */
+  .user-card-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  
+  .user-card-actions button {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--color-olive);
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .user-card-actions button:hover {
+    background-color: var(--color-dark);
+  }
+  
+  .verde {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .rojo {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Responsive: solo visible en móviles */
+  @media (min-width: 769px) {
+    .user-table-mobile {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ant-table-wrapper {
+      display: none !important;
+    }
+  }
+  

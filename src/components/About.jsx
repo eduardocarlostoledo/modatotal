@@ -7,7 +7,7 @@ export default function About () {
             {
             name:"Eduardo Carlos Toledo",
             image:<img src={Edu} alt="screen" className='profile_image'/>,
-            instagram:"https://www.instagram.com/elgatonegropremium/"},
+            instagram:"https://www.instagram.com//"},
         ]
 
     return (

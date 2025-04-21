@@ -1,139 +1,134 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense, useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Table, Tag } from "antd";
+import { Table, Tag, Spin } from "antd";
 import { GrUserAdmin } from "react-icons/gr";
-import swal from "sweetalert";
 import { FaUserCheck, FaBan } from "react-icons/fa";
 import { MdOutlineVerifiedUser } from "react-icons/md";
+import swal from "sweetalert";
 import {
   getAllUsers,
-  putUser,
   getAllUsersName,
+  putUserProfile,
 } from "../redux/slices/userSlice";
 import styles from "../styles/AdminUsers.module.css";
 import { NavAdmin } from "./navAdmin";
+import {useMediaQuery} from "../hooks/useMediaQuery.jsx";
 
-const InfoUser = ({ email, name, image, lastname, status, country }) => {
-  return (
-    <div className={styles.Contenedor}>
-      <div className={styles.ContenedorImg}>
-        <img
-          src={
-            image || "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
-          }
-          alt={name || "User Image"}
-        />
-      </div>
-      <div className={styles.ContenedorData}>
-        <h4>
-          {name} {lastname}{" "}
-          {status ? (
-            <span className={styles.verde}>User Active</span>
-          ) : (
-            <span className={styles.rojo}>User Banned</span>
-          )}
-        </h4>
-        <div className={styles.centrado}>
-          <h5>Ordenes</h5>
-          {Array.isArray(country) && country.length > 0 ? (
-            country
-              .filter((e) => e.buyer_email === email)
-              .map((e, index) => (
-                <h6 key={index}>
-                  {e.product_name} {e.product_unit_price} ${" "}
-                  <span
-                    style={{
-                      color: "green",
-                      fontSize: "11px",
-                      border: "0.01rem solid green",
-                      padding: "2px",
-                      borderRadius: "6px",
-                    }}
-                  >
-                    {e.statusId}
-                  </span>
-                </h6>
-              ))
-          ) : (
-            <p>No orders found</p>
-          )}
-        </div>
+const UserTableMobile = lazy(() => import("./UserCardMobile"));
+
+const InfoUser = ({ email, name, image, lastname, status, country }) => (
+  <div className={styles.Contenedor}>
+    <div className={styles.ContenedorImg}>
+      <img
+        src={image || "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"}
+        alt={name || "User Image"}
+      />
+    </div>
+    <div className={styles.ContenedorData}>
+      <h4>
+        {name} {lastname}{" "}
+        <span className={status ? styles.verde : styles.rojo}>
+          {status ? "User Active" : "User Banned"}
+        </span>
+      </h4>
+      <div className={styles.centrado}>
+        <h5>Ordenes</h5>
+        {Array.isArray(country) && country.length > 0 ? (
+          country
+            .filter((e) => e.buyer_email === email)
+            .map((e, index) => (
+              <h6 key={index}>
+                {e.product_name} {e.product_unit_price} ${" "}
+                <span
+                  style={{
+                    color: "green",
+                    fontSize: "11px",
+                    border: "0.01rem solid green",
+                    padding: "2px",
+                    borderRadius: "6px",
+                  }}
+                >
+                  {e.statusId}
+                </span>
+              </h6>
+            ))
+        ) : (
+          <p>No orders found</p>
+        )}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export const AdminUsers = () => {
-  const [country, setCountry] = useState({});
-  const [reload, setReload] = useState(false);
+  const [orders, setOrders] = useState([]);
+  const [name, setName] = useState("");
   const dispatch = useDispatch();
+  const users = useSelector((state) => state.users.users || []);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  const newUsers = useMemo(() => {
+    return users.map((user) => ({ ...user, key: user.id }));
+  }, [users]);
 
   useEffect(() => {
+    dispatch(getAllUsers());
     fetch(`${import.meta.env.VITE_APP_BACK}/order`)
       .then((res) => res.json())
-      .then((data) => {
-        setCountry(data);
-      })
-      .catch((error) => console.log(error));
-    return () => setCountry({});
-  }, []);
+      .then(setOrders)
+      .catch(console.error);
+  }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch, reload]);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    dispatch(getAllUsers());
-  };
-
-  const users = useSelector((state) => state.users.users || []);
-  //console.log(users, "users");
-  const newUsers = users?.map((user) => ({ ...user, key: user.id }));
-  //console.log(newUsers, "newUsers");
-  const [name, setName] = useState("");
-
-  const handleInputChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
     dispatch(getAllUsersName(name));
     setName("");
   };
 
-  const setAdmin = (value) => {
-    const { password, ...values } = value;
-    const action = value.admin ? "Quitar ADMIN" : "Sera ADMIN";
+  const handleReload = (e) => {
+    e.preventDefault();
+    dispatch(getAllUsers());
+  };
 
+  const toggleAdmin = (user) => {
     swal({
-      title: `Estas seguro que deseas ${action} a ${value.name}`,
-      text: value.admin ? "Quitar ADMIN" : "Sera ADMIN",
+      title: `¿Estás seguro de ${user.admin ? "quitar" : "asignar"} admin a ${user.name}?`,
       icon: "warning",
-      buttons: ["No", "Si"],
-    }).then((respuesta) => {
-      if (respuesta) {
-        dispatch(PutUser({ ...values, admin: !value.admin }));
-        setReload(!reload);
+      buttons: ["No", "Sí"],
+    }).then((resp) => {
+      if (resp) {
+        const updated = { ...user, admin: !user.admin };
+        delete updated.password;
+        dispatch(putUserProfile(updated));
       }
     });
   };
 
-  const setStatus = (value) => {
-    const action = value.status ? "Banear" : "Desbanear";
-
+  const toggleStatus = (user) => {
     swal({
-      title: `Estas seguro que deseas ${action} a ${value.name}`,
-      text: value.status ? "Banear" : "Desbanear",
+      title: `¿Estás seguro de ${user.status ? "banear" : "desbanear"} a ${user.name}?`,
       icon: "warning",
-      buttons: ["No", "Si"],
-    }).then((respuesta) => {
-      if (respuesta) {
-        dispatch(PutUser({ ...value, status: !value.status }));
+      buttons: ["No", "Sí"],
+    }).then((resp) => {
+      if (resp) {
+        dispatch(putUserProfile({ ...user, status: !user.status }));
       }
     });
   };
+
+  const renderExpandedRow = useCallback(
+    (record) => (
+      <InfoUser
+        email={record.email}
+        country={orders}
+        name={record.name}
+        lastname={record.lastname}
+        image={record.image}
+        status={record.status}
+      />
+    ),
+    [orders]
+  );
 
   const columns = [
     {
@@ -141,59 +136,68 @@ export const AdminUsers = () => {
       dataIndex: "id",
       sorter: (a, b) => a.id - b.id,
       defaultSortOrder: "ascend",
+      width: 80,
+      align: "center",
     },
     {
       title: "Nombre",
       dataIndex: "name",
+      width: 150,
+      render: (text, record) => (
+        <div style={{ fontWeight: 500 }}>{text} {record.lastname}</div>
+      ),
     },
     {
       title: "Email",
       dataIndex: "email",
+      width: 200,
+      render: (text) => (
+        <a href={`mailto:${text}`} style={{ color: '#1890ff' }}>{text}</a>
+      ),
     },
     {
       title: "Admin",
       dataIndex: "admin",
+      width: 120,
       render: (value) => (
-        <Tag color={value ? "green" : "red"}>
-          {value ? "Admin" : "No Admin"}
+        <Tag color={value ? "green" : "volcano"}>
+          {value ? "Administrador" : "Usuario"}
         </Tag>
       ),
       filters: [
-        { text: "Admin", value: true },
-        { text: "No Admin", value: false },
+        { text: "Administrador", value: true },
+        { text: "Usuario", value: false },
       ],
       onFilter: (value, record) => record.admin === value,
+      align: "center",
     },
     {
-      title: "Status",
+      title: "Estado",
       dataIndex: "status",
+      width: 120,
       render: (value) => (
-        <Tag color={value ? "green" : "red"}>{value ? "Active" : "Banned"}</Tag>
+        <Tag color={value ? "green" : "red"}>
+          {value ? "Activo" : "Baneado"}
+        </Tag>
       ),
       filters: [
-        { text: "Active", value: true },
-        { text: "Banned", value: false },
+        { text: "Activo", value: true },
+        { text: "Baneado", value: false },
       ],
       onFilter: (value, record) => record.status === value,
+      align: "center",
     },
     {
-      title: "Actions",
-      render: (value) => (
-        <div>
-          <button className={styles.btnIcons} onClick={() => setStatus(value)}>
-            {value.status ? (
-              <FaBan className={styles.banned} />
-            ) : (
-              <FaUserCheck className={styles.desbanned} />
-            )}
+      title: "Acciones",
+      width: 120,
+      align: "center",
+      render: (user) => (
+        <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+          <button className={styles.btnIcons} title={user.status ? "Banear usuario" : "Activar usuario"} onClick={() => toggleStatus(user)}>
+            {user.status ? <FaBan className={styles.banned} /> : <FaUserCheck className={styles.desbanned} />}
           </button>
-
-          <button className={styles.btnIcons} onClick={() => setAdmin(value)}>
-            {value.admin ? (
-              <GrUserAdmin className={styles.desAdmin} />
-            ) : (
-              <MdOutlineVerifiedUser className={styles.setAdmin} />
-            )}
+          <button className={styles.btnIcons} title={user.admin ? "Quitar admin" : "Hacer admin"} onClick={() => toggleAdmin(user)}>
+            {user.admin ? <GrUserAdmin className={styles.desAdmin} /> : <MdOutlineVerifiedUser className={styles.setAdmin} />}
           </button>
         </div>
       ),
@@ -204,29 +208,32 @@ export const AdminUsers = () => {
     <div>
       <NavAdmin
         name={name}
-        handleInputChange={handleInputChange}
-        handleSubmit={handleSubmit}
-        handleClick={handleClick}
+        handleInputChange={(e) => setName(e.target.value)}
+        handleSubmit={handleSearch}
+        handleClick={handleReload}
       />
-      <div >
+
+      {!isMobile ? (
         <Table
           style={{ backgroundColor: "rgb(245, 245, 235)" }}
           columns={columns}
           dataSource={newUsers}
+          rowKey="id"
+          scroll={{ x: true }}
+          pagination={{ pageSize: 10 }}
           expandable={{
-            expandedRowRender: (record) => (
-              <InfoUser
-                email={record.email}
-                country={country}
-                name={record.name}
-                lastname={record.lastname}
-                image={record.image}
-                status={record.status}
-              />
-            ),
+            expandedRowRender: renderExpandedRow,
           }}
         />
-      </div>
+      ) : (
+        <Suspense fallback={<Spin />}> 
+          <UserTableMobile
+            users={newUsers}
+            toggleAdmin={toggleAdmin}
+            toggleStatus={toggleStatus}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };
