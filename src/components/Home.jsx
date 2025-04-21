@@ -151,8 +151,32 @@ export const Home = () => {
         </div>
       </section>
 
+      <section className="moda-hero-banner">
+  <div className="moda-hero-content">
+    <h1>Moda para Cada Estilo</h1>
+    <p>Descubrí tendencias para mujer, hombre y niños</p>
+    <Link to="/Products">
+    <button className="moda-shop-now-btn">Ver colección</button>
+    </Link>
+  </div>
+</section>
+
+
       
-        <div className="hero-content">
+      
+      
+        <section className="moda-hero-banner2">
+  <div className="moda-hero-content">
+    <h1>Moda para Ellas</h1>
+    <p>Descubrí tendencias para mujer</p>
+    <Link to="/Products">
+    <button className="moda-shop-now-btn">Ver colección</button>
+    </Link>
+  </div>
+</section>
+
+
+<div className="hero-content">
           <h1>Nueva Temporada Invierno ❄️</h1>
           <p>Elegí tu estilo. Envíos gratis a todo el país.</p>
           <motion.button
@@ -165,7 +189,7 @@ export const Home = () => {
             </Link>
           </motion.button>
         </div>
-      
+        
 
       {/* Garantías / Valores */}
       <section className="values-section">
