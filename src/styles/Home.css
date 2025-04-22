@@ -25,7 +25,7 @@
 
 /* Hero Banner */
 .hero-banner {
-  background: url('../images/banner-moda-total.webp') center/cover no-repeat;
+  background: url('../images/banner-moda-total.webp') center center / cover no-repeat;
   height: 600px;
   border-radius: 16px;
   display: flex;
@@ -65,7 +65,7 @@ button.shop-now-btn {
 /* Featured Products */
 .featured-products {
   margin-bottom: 40px;
-  
+
 }
 
 
@@ -73,19 +73,22 @@ button.shop-now-btn {
   text-align: center;
   margin-bottom: 30px;
   font-size: 2rem;
-  color: var( --color-black);
+  color: var(--color-black);
 }
 
- .featured-products .home-titulocontrapelo {
+.featured-products .home-titulocontrapelo {
   color: var(--color-primary);
 }
+
 .categories-section .home-titulocontrapelo {
   color: var(--color-primary);
 }
+
 .values-section .home-titulocontrapelo {
   color: var(--color-primary);
 }
-.contact-section .home-titulocontrapelo {  
+
+.contact-section .home-titulocontrapelo {
   color: var(--color-primary) !important;
 }
 
@@ -99,14 +102,14 @@ button.shop-now-btn {
   background: #fff;
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   transition: all 0.3s ease;
 }
 
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .product-discount {
@@ -170,11 +173,11 @@ button.shop-now-btn {
 
 
 .categories-grid {
-  
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap:
-20px;
+    20px;
 
 }
 
@@ -183,7 +186,7 @@ button.shop-now-btn {
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .category-discount {
@@ -226,11 +229,11 @@ button.shop-now-btn {
 
 .value-card {
   background: var(--color-white);
-  color:  var(--color-gold);
+  color: var(--color-gold);
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .value-icon {
@@ -242,8 +245,8 @@ button.shop-now-btn {
 /* Chatbot */
 .chatbot-section {
   background: url('../images/contact-center.jpg') center/cover no-repeat;
-  
-  color:  var(--color-white);
+
+  color: var(--color-white);
   border-radius: 12px;
   padding: 30px;
   text-align: center;
@@ -260,10 +263,13 @@ button.shop-now-btn {
   text-align: center;
   margin-bottom: 40px;
 }
+
 .contact-button {
   margin: 20px;
-  background-color: var(--color-lavender-pink);  /* tono suave y elegante */
-  color: var(--color-gold);                      /* texto oscuro con presencia */
+  background-color: var(--color-lavender-pink);
+  /* tono suave y elegante */
+  color: var(--color-gold);
+  /* texto oscuro con presencia */
   padding: 12px 24px;
   border-radius: 30px;
   font-size: 16px;
@@ -274,8 +280,10 @@ button.shop-now-btn {
 }
 
 .contact-button:hover {
-  background-color: var(--color-lavender-gray);  /* cambio suave en hover */
-  color: var(--color-dark);                      /* contraste más marcado */
+  background-color: var(--color-lavender-gray);
+  /* cambio suave en hover */
+  color: var(--color-dark);
+  /* contraste más marcado */
   border-color: var(--color-dark);
 }
 
@@ -285,6 +293,7 @@ button.shop-now-btn {
   .hero-content h1 {
     font-size: 2rem;
   }
+
   .products-grid,
   .categories-grid,
   .values-grid {
@@ -292,24 +301,25 @@ button.shop-now-btn {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 1000px) {
+  .hero-banner {
+    background-position: center 30%;
+    /* más fino, centrado un poco más abajo del top */
+  }
+}
 
-
-
-
-
-  .home-container {    
+@media (max-width: 1000px) {
+  .home-container {
     padding: 1px;
   }
 
-  
-  .hero-banner {    
+  .hero-banner {
     margin-top: -105px;
-    
+    background-position: center 25%;
     width: 100%;
   }
 
-  .home-container .hero-content .h1 .p{
+  .home-container .hero-content .h1 .p {
     color: var(--color-white);
     margin-top: 200px;
     font-size: 2rem;
@@ -319,6 +329,7 @@ button.shop-now-btn {
     margin-top: 200px;
     font-size: 2rem;
   }
+
   .products-grid,
   .categories-grid,
   .values-grid {
@@ -354,7 +365,8 @@ button.shop-now-btn {
 }
 
 .moda-hero-content {
-  background-color: rgba(0, 0, 0, 0.4); /* leve overlay */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* leve overlay */
   padding: 20px 30px;
   border-radius: 12px;
 }
@@ -402,5 +414,32 @@ button.shop-now-btn {
   .moda-shop-now-btn {
     font-size: 0.9rem;
     padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-banner,
+  .moda-hero-banner,
+  .moda-hero-banner2 {
+    background-position: center 30%;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-banner,
+  .moda-hero-banner,
+  .moda-hero-banner2 {
+    background-position: 90% 20%;
+  }
+}
+@media (max-width: 1000px) {
+  .moda-hero-banner2 {
+    background-position: 60% 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .moda-hero-banner2 {
+    background-position: 75% 20%;
   }
 }
