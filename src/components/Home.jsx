@@ -11,6 +11,15 @@ import {
 } from "react-icons/fa";
 import { ChatBot } from "./ChatBot";
 import tarjetas from "../images/tarjetas.png";
+import blazer_mujer from "../images/blazer_mujer.jpg";
+import casaca from "../images/casaca.jpg";
+import jean_mom from "../images/jean-mom.jpeg";
+import vestidolargo from "../images/vestido-largo.jpg";
+import mujer from "../images/mujer.jpg";
+import hombre from "../images/hombre.jpg";
+import ninios from "../images/niños.jpg";
+import accesorios from "../images/accesorios.jpg";
+
 const featuredProducts = [
   {
     id: 1,
@@ -18,7 +27,7 @@ const featuredProducts = [
     price: "$34.990",
     discount: "30% OFF",
     freeShipping: true,
-    img: "https://img.ltwebstatic.com/images3_pi/2024/11/06/fe/17308868500565200bd2563b671f3170415d51efb6_thumbnail_405x.jpg",
+    img: blazer_mujer,
   },
   {
     id: 2,
@@ -26,7 +35,7 @@ const featuredProducts = [
     price: "$25.900",
     discount: "20% OFF",
     freeShipping: true,
-    img: "https://imagesa1.lacoste.com/dw/image/v2/BCWL_PRD/on/demandware.static/-/Sites-master/default/dwae3515ab/CH4901_166_20.jpg?imwidth=615&impolicy=pctp",
+    img: casaca,
   },
   {
     id: 3,
@@ -35,7 +44,7 @@ const featuredProducts = [
     originalPrice: "$22.000",
     discount: "15% OFF",
     freeShipping: false,
-    img: "https://img.ltwebstatic.com/images3_spmp/2025/02/22/84/17402072690545affca15188a438e23e8a406a1fe2_wk_1740551060_thumbnail_560x.webp",
+    img: jean_mom,
   },
   {
     id: 4,
@@ -43,7 +52,7 @@ const featuredProducts = [
     price: "$42.000",
     discount: "40% OFF",
     freeShipping: true,
-    img: "https://www.allomartinez.com/media/catalog/product/cache/7fca96df29d0806c8ecefe7d9fd8a78d/v/e/vestido_durex_1239.jpg",
+    img: vestidolargo,
   },
 ];
 
@@ -52,25 +61,25 @@ const categories = [
     name: "MUJER",
     discount: "30% OFF",
     installments: "3 CUOTAS SIN INTERÉS",
-    img: "https://us.123rf.com/450wm/yaroslavastakhov/yaroslavastakhov2409/yaroslavastakhov240900192/235888509-reuni%C3%B3n-de-negocios-din%C3%A1mica-y-participativa-para-una-colaboraci%C3%B3n-y-comunicaci%C3%B3n-efectiva-en.jpg?ver=6",
+    img: mujer,
   },
   {
     name: "HOMBRE",
     discount: "25% OFF",
     installments: "AHORA 12",
-    img: "https://www.lolitamoda.com/uploads/post/image/61/56.Reglas_de_estilo_que_todo_hombre_debe_conocer.jpg",
+    img: hombre,
   },
   {
     name: "NIÑOS",
     discount: "20% OFF",
     installments: "",
-    img: "https://img.freepik.com/foto-gratis/nino-sonriente-aislado-rosa_23-2148984798.jpg?semt=ais_hybrid&w=740",
+    img: ninios,
   },
   {
     name: "ACCESORIOS",
     discount: "15% OFF",
     installments: "",
-    img: "https://nupciasmagazine.com/wp-content/uploads/2024/01/Joyeria-y-accesorios-2024-Lo-que-no-te-puede-faltar-scaled.jpg",
+    img: accesorios,
   },
 ];
 
