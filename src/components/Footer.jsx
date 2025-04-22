@@ -1,42 +1,48 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { SocialIcon } from 'react-social-icons';
 import '../styles/Footer.css';
 import logo from '../img/logoinvertido.png';
 
 export const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollLink = (to) => {
+    if (location.pathname === to) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate(to);
+    }
+  };
+
   return (
     <footer className="footer">
       {/* Suscripción */}
       <div className="footer-subscribe">
-        <p>¡Llegá primero a nuestras novedades!
-        </p>
+        <p>¡Llegá primero a nuestras novedades!</p>
         <button className="newsletter-button">SUSCRIBITE AL NEWSLETTER &gt;</button>
       </div>
 
       <div className="footer-columns">
         {/* ATENCIÓN AL CLIENTE */}
         <div className="footer-column">
-          <h4>ATENCIÓN AL CLIENTE</h4>
+           <h4>ATENCIÓN AL CLIENTE</h4>
           <ul>
-            <li><Link to="/envios">POLÍTICA DE ENVÍOS</Link></li>
-            <li><Link to="/cambios">CAMBIOS Y DEVOLUCIONES</Link></li>
-            <li><Link to="/pagos">PAGOS Y PROMOCIONES</Link></li>
-            <li><Link to="/seguridad">SEGURIDAD DE LOS PAQUETES</Link></li>
-            <li><Link to="/giftcard">GIFT CARD</Link></li>
-            <li><Link to="/privacidad">POLÍTICAS DE PRIVACIDAD</Link></li>
+            <li><button onClick={() => handleScrollLink('/PoliticaEnvios')}>Política de Envíos</button></li>
+            <li><button onClick={() => handleScrollLink('/CambiosDevoluciones')}>Cambios y Devoluciones</button></li>
+            <li><button onClick={() => handleScrollLink('/PagosPromociones')}>Pagos y Promociones</button></li>
+            <li><button onClick={() => handleScrollLink('/SeguridadPaquetes')}>Seguridad de los Paquetes</button></li>
           </ul>
         </div>
 
-        {/* TIENDA ONLINE */}
         <div className="footer-column">
-          <h4>TIENDA ONLINE</h4>
+          <h4>POLÍTICAS</h4>
           <ul>
-            <li><Link to="/mujer">MUJER</Link></li>
-            <li><Link to="/hombre">HOMBRE</Link></li>
-            <li><Link to="/mini">MINI</Link></li>
-            <li><Link to="/argentina">ARGENTINA</Link></li>
-            <li><Link to="/deportes">DEPORTES</Link></li>
-            <li><Link to="/accesorios">ACCESORIOS</Link></li>
-            <li><Link to="/outlet">OUTLET</Link></li>
+            <li><button onClick={() => handleScrollLink('/terminos-y-condiciones')}>Términos y Condiciones</button></li>
+            <li><button onClick={() => handleScrollLink('/politica-privacidad')}>Política de Privacidad</button></li>
+            {/* <li><button onClick={() => handleScrollLink('/condiciones-servicio')}>Condiciones de Servicio</button></li> */}
+            <li><button onClick={() => handleScrollLink('/faq')}>Preguntas Frecuentes</button></li>
+            <li><button onClick={() => handleScrollLink('/contacto')}>Contacto</button></li>
           </ul>
         </div>
 
@@ -44,10 +50,9 @@ export const Footer = () => {
         <div className="footer-column">
           <h4>EMPRESA</h4>
           <ul>
-            <li><Link to="/historia">NUESTRA HISTORIA</Link></li>
-            <li><Link to="/nocturna">NOCTURNA MODA</Link></li>
-            <li><Link to="/estacion">ESTACIÓN MODA</Link></li>
-            <li><Link to="/club">CLUB MODA</Link></li>
+            <li>
+              <Link to="/historia">Nuestra Historia</Link>
+            </li>
           </ul>
         </div>
 
@@ -55,16 +60,18 @@ export const Footer = () => {
         <div className="footer-column">
           <h4>CONTACTO MAYORISTA</h4>
           <ul>
-            <li><Link to="/mayorista">SUMÁ MODA TOTAL A TU LOCAL</Link></li>
+            <li>
+              <Link to="/mayorista">Sumá MODA TOTAL a tu local</Link>
+            </li>
           </ul>
 
-          {/* Redes */}
+          {/* Redes Sociales */}
           <div className="footer-social">
-            <a href="#"><i className="fab fa-facebook"></i></a>
-            <a href="#"><i className="fab fa-instagram"></i></a>
-            <a href="#"><i className="fab fa-twitter"></i></a>
-            <a href="#"><i className="fab fa-linkedin"></i></a>
-            <a href="#"><i className="fab fa-youtube"></i></a>
+            <SocialIcon url="https://www.facebook.com/tuempresa" style={{ height: 35, width: 35 }} />
+            <SocialIcon url="https://www.instagram.com/tuempresa" style={{ height: 35, width: 35 }} />
+            <SocialIcon url="https://www.twitter.com/tuempresa" style={{ height: 35, width: 35 }} />
+            <SocialIcon url="https://www.linkedin.com/company/tuempresa" style={{ height: 35, width: 35 }} />
+            <SocialIcon url="https://www.youtube.com/tuempresa" style={{ height: 35, width: 35 }} />
           </div>
         </div>
       </div>
@@ -84,31 +91,3 @@ export const Footer = () => {
     </footer>
   );
 };
-
-// import { Link } from 'react-router-dom';
-// import '../styles/Footer.css';
-// import logo from '../img/logoinvertido.png';
-
-// export const Footer = () => {
-//   return (
-//     <footer className='footer'>
-//       <div className='footer-top'>
-//         <div className='footer-logo'>
-//           <img src={logo} alt="Logo El MODA TOTAL" />
-//         </div>
-//         <div className='footer-links'>
-//           <Link to="/politica-privacidad">Política de Privacidad</Link>
-//           <Link to="/condiciones-servicio">Condiciones del Servicio</Link>
-//           <Link to="/terminos-y-condiciones">Términos y Condiciones</Link>
-//           <Link to="/faq">Ayuda</Link>
-//           <Link to="/contacto">Contacto</Link>
-//         </div>
-//       </div>
-
-//       <div className='footer-bottom'>
-//         <p>&copy; {new Date().getFullYear()} El MODA TOTAL. Todos los derechos reservados.</p>
-//         <p>Hecho con ❤️ en Misiones, Argentina</p>
-//       </div>
-//     </footer>
-//   );
-// };

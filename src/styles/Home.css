@@ -26,7 +26,7 @@
 /* Hero Banner */
 .hero-banner {
   background: url('../images/banner-moda-total.webp') center/cover no-repeat;
-  height: 400px;
+  height: 600px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@
   margin-bottom: 20px;
 }
 
-.shop-now-btn {
+button.shop-now-btn {
   background-color: #000;
   color: #fff;
   border: none;
@@ -243,7 +243,7 @@
 .chatbot-section {
   background: url('../images/contact-center.jpg') center/cover no-repeat;
   
-  color:  var(--color-gold);
+  color:  var(--color-white);
   border-radius: 12px;
   padding: 30px;
   text-align: center;
@@ -329,7 +329,7 @@
 /* Hero Banner de Moda Total */
 .moda-hero-banner {
   background: url('../images/banner-3models.jpg') center/cover no-repeat;
-  height: 450px;
+  height: 600px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -342,7 +342,7 @@
 
 .moda-hero-banner2 {
   background: url('../images/banner-michele.jpg') center/cover no-repeat;
-  height: 450px;
+  height: 600px;
   border-radius: 16px;
   display: flex;
   align-items: center;

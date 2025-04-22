@@ -1,52 +1,60 @@
 import React from 'react';
-import "../styles/PoliticayCondiciones.css"
+import '../styles/PoliticaPrivacidad.css';
 
-const CondicionesServicio = () => {
+const PoliticaPrivacidad = () => {
+  const sections = [
+    {
+      title: '1. Datos que recopilamos',
+      text: [
+        'Nombre completo',
+        'Correo electrónico',
+        'Imágenes proporcionadas por el usuario'
+      ]
+    },
+    {
+      title: '2. Uso de la información',
+      text: [
+        'Proporcionar los servicios solicitados por el usuario.',
+        'Mejorar y personalizar la experiencia del usuario.',
+        'Enviar actualizaciones y ofertas sobre nuestros servicios.'
+      ]
+    },
+    {
+      title: '3. Almacenamiento y seguridad',
+      text: [
+        'No compartimos ni vendemos tus datos.',
+        'La información está protegida con medidas de seguridad estándar.',
+        'Solo el personal autorizado puede acceder a tus datos.'
+      ]
+    },
+    {
+      title: '4. Derechos del usuario',
+      text: [
+        'Acceder, modificar o eliminar tus datos.',
+        'Ejercer tus derechos escribiendo a nuestro email de soporte.',
+        'Solicitar la baja total de tus registros.'
+      ]
+    }
+  ];
+
   return (
-    <div className='politicaycondiciones'>
-      <h1>Condiciones del Servicio</h1>
-      <h2>Aceptación de términos</h2>
-      <p>
-        Al utilizar nuestros servicios, el usuario acepta estas condiciones y
-        declara haber leído nuestra política de privacidad.
-      </p>
-      <h2>Servicios ofrecidos</h2>
-      <p>
-        Nuestros servicios incluyen el desarrollo de landings, pequeñas páginas
-        web tipo SPA y sistemas autoadministrables. Nos reservamos el derecho de
-        modificar, suspender o cancelar servicios sin previo aviso.
-      </p>
-      <h2>Responsabilidad</h2>
-      <p>No nos hacemos responsables de:</p>
-      <ul>
-        <li>Errores causados por el uso inadecuado del sistema.</li>
-        <li>Fallas técnicas o interrupciones temporales del servicio.</li>
-        <li>Pérdidas o daños derivados del uso del sistema.</li>
-      </ul>
-      <h2>Recopilación de datos</h2>
-      <p>Solo recopilamos y almacenamos:</p>
-      <ul>
-        <li>Email</li>
-        <li>Nombre</li>
-        <li>Imágenes proporcionadas por el usuario</li>
-      </ul>
-      <p>
-        No recopilamos ni almacenamos información adicional sin el
-        consentimiento explícito del usuario.
-      </p>
-      <h2>Modificaciones de las condiciones</h2>
-      <p>
-        Nos reservamos el derecho de actualizar estas condiciones en cualquier
-        momento. Las modificaciones serán notificadas a los usuarios por correo
-        electrónico.
-      </p>
-      <h2>Contacto</h2>
-      <p>
-        Para consultas o dudas sobre estas condiciones, puede contactarnos a
-        través de nuestro email de soporte.
-      </p>
+    <div className="privacidad-container">
+      <h1 className="privacidad-titulo">Política de Privacidad</h1>
+      <div className="privacidad-grid">
+        {sections.map((section, idx) => (
+          <div key={idx} className="privacidad-card">
+            <h2>{section.title}</h2>
+            <ul>
+              {section.text.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
+}; 
 
-export default CondicionesServicio;
+
+export default PoliticaPrivacidad;

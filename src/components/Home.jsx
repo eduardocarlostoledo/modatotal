@@ -52,7 +52,7 @@ const categories = [
     name: "MUJER",
     discount: "30% OFF",
     installments: "3 CUOTAS SIN INTERÉS",
-    img: "https://static01.nyt.com/images/2017/05/07/arts/07GAL-GADOTweb/07GAL-GADOTweb-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+    img: "https://us.123rf.com/450wm/yaroslavastakhov/yaroslavastakhov2409/yaroslavastakhov240900192/235888509-reuni%C3%B3n-de-negocios-din%C3%A1mica-y-participativa-para-una-colaboraci%C3%B3n-y-comunicaci%C3%B3n-efectiva-en.jpg?ver=6",
   },
   {
     name: "HOMBRE",
@@ -81,6 +81,8 @@ export const Home = () => {
 
   return (
     <div className="home-container">
+      
+
       {/* Banner principal */}
       <motion.section
         className="hero-banner"
@@ -88,6 +90,26 @@ export const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       ></motion.section>
+
+      <section className="moda-hero-banner">
+        <div className="moda-hero-content">
+          <h1>Moda para Cada Estilo</h1>
+          <p>Descubrí tendencias para mujer, urbana y deportiva</p>
+          <Link to="/Products">
+            <button className="moda-shop-now-btn">Ver colección</button>
+          </Link>
+        </div>
+      </section>
+
+      <section className="moda-hero-banner2">
+        <div className="moda-hero-content">
+          <h1>Moda para Ellas</h1>
+          <p>Descubrí tendencias para mujer</p>
+          <Link to="/Products">
+            <button className="moda-shop-now-btn">Ver colección</button>
+          </Link>
+        </div>
+      </section>
 
       {/* Productos Destacados */}
 
@@ -151,45 +173,19 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className="moda-hero-banner">
-  <div className="moda-hero-content">
-    <h1>Moda para Cada Estilo</h1>
-    <p>Descubrí tendencias para mujer, hombre y niños</p>
-    <Link to="/Products">
-    <button className="moda-shop-now-btn">Ver colección</button>
-    </Link>
-  </div>
-</section>
-
-
-      
-      
-      
-        <section className="moda-hero-banner2">
-  <div className="moda-hero-content">
-    <h1>Moda para Ellas</h1>
-    <p>Descubrí tendencias para mujer</p>
-    <Link to="/Products">
-    <button className="moda-shop-now-btn">Ver colección</button>
-    </Link>
-  </div>
-</section>
-
-
-<div className="hero-content">
-          <h1>Nueva Temporada Invierno ❄️</h1>
-          <p>Elegí tu estilo. Envíos gratis a todo el país.</p>
-          <motion.button
-            className="shop-now-btn"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link to="/Products" className="navbar-link">
-              <span>Tienda</span>
-            </Link>
-          </motion.button>
-        </div>
-        
+      <div className="hero-content">
+        <h1>Nueva Temporada Invierno ❄️</h1>
+        <p>Elegí tu estilo. Envíos gratis a todo el país.</p>
+        <motion.button
+          className="shop-now-btn"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Link to="/Products" className="navbar-link">
+            <span>Tienda</span>
+          </Link>
+        </motion.button>
+      </div>
 
       {/* Garantías / Valores */}
       <section className="values-section">

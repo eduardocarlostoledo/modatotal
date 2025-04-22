@@ -4,7 +4,7 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  background: var(--color-surface); /* fondo del card */
+  /* background: var(--color-surface); */
   border-radius: 12px;
   box-shadow: var(--box-shadow-medium);
   overflow: hidden;
@@ -12,8 +12,8 @@
 }
 
 .chat-header {
-  background: var(--color-primary); /* encabezado suave */
-  color: var(--color-text);         /* marrón pinko */
+  background: var(--color-white); /* encabezado suave */
+  color: var(--color-black);         /* marrón pinko */
   text-align: center;
   padding: 12px;
   font-weight: bold;
@@ -47,8 +47,8 @@
 
 .chat-message.bot {
   align-self: flex-start;
-  
-  color: var(--color-text);
+  background: var(--color-accent); /* celeste clarito */
+  color: var(--color-dark);       /* texto oscuro */
 }
 
 .typing-indicator {

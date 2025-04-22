@@ -1,151 +1,72 @@
 import React from 'react';
+import './FAQ.css';
 
 export const FAQ = () => {
   const faqItems = [
     {
-      question: "What is Cryptoseed.ai?",
-      answer: "Cryptoseed.ai is a platform that allows users to create and manage their own cryptocurrency tokens with ease. We provide the tools and infrastructure to launch your token in just a few steps.",
+      question: "¿Cómo realizo una compra?",
+      answer: "Navegá por nuestras categorías, seleccioná tus productos favoritos y agregalos al carrito. Luego, completá tus datos y elegí el método de pago y envío que prefieras.",
       icon: (
-        <svg
-          className="w-8 h-8 text-blue-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          ></path>
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 3h2l.4 2M7 13h10l4-8H5.4" stroke="currentColor" strokeWidth="2" fill="none" />
+          <circle cx="7" cy="21" r="1" />
+          <circle cx="17" cy="21" r="1" />
         </svg>
       ),
     },
     {
-      question: "How much does it cost to create a token?",
-      answer: "We charge a 1% fee on all token creation transactions. This fee supports the maintenance and development of our platform.",
+      question: "¿Cuáles son los métodos de pago disponibles?",
+      answer: "Aceptamos tarjetas de crédito y débito (Visa, MasterCard, American Express), transferencias bancarias y pagos en efectivo a través de Rapipago y Pago Fácil.",
       icon: (
-        <svg
-          className="w-8 h-8 text-green-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <rect x="2" y="5" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" fill="none" />
+          <path d="M2 10h20" stroke="currentColor" strokeWidth="2" />
         </svg>
       ),
     },
     {
-      question: "Is there a limit to the number of tokens I can create?",
-      answer: "No, there is no limit. You can create as many tokens as you need, and each one will be charged the standard 1% creation fee.",
+      question: "¿Realizan envíos a todo el país?",
+      answer: "Sí, realizamos envíos a todo el territorio argentino a través de servicios de mensajería confiables. También podés optar por retirar tu pedido en nuestras sucursales.",
       icon: (
-        <svg
-          className="w-8 h-8 text-purple-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M5 13l4 4L19 7"
-          ></path>
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 3h18v13H3z" stroke="currentColor" strokeWidth="2" fill="none" />
+          <path d="M16 16l4 4m0-4l-4 4" stroke="currentColor" strokeWidth="2" />
         </svg>
       ),
     },
     {
-      question: "What blockchains are supported?",
-      answer: "We currently support Ethereum, Binance Smart Chain, and Polygon. More blockchains will be added in the future.",
+      question: "¿Puedo cambiar o devolver un producto?",
+      answer: "Sí, tenés hasta 15 días desde la recepción del pedido para realizar cambios o devoluciones. El producto debe estar en perfectas condiciones y con su embalaje original.",
       icon: (
-        <svg
-          className="w-8 h-8 text-yellow-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-          ></path>
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4 4h16v16H4z" stroke="currentColor" strokeWidth="2" fill="none" />
+          <path d="M9 9l6 6m0-6l-6 6" stroke="currentColor" strokeWidth="2" />
         </svg>
       ),
     },
     {
-      question: "How do I get started?",
-      answer: "Simply sign up on our platform, complete the KYC process, and follow the steps to create your token. It’s quick and easy!",
+      question: "¿Cómo puedo seguir el estado de mi pedido?",
+      answer: "Una vez despachado tu pedido, recibirás un correo electrónico con el número de seguimiento y el enlace para rastrear tu envío en tiempo real.",
       icon: (
-        <svg
-          className="w-8 h-8 text-red-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          ></path>
-        </svg>
-      ),
-    },
-    {
-      question: "Is my data secure?",
-      answer: "Yes, we use industry-standard encryption and security practices to ensure your data is safe and secure.",
-      icon: (
-        <svg
-          className="w-8 h-8 text-indigo-600"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-          ></path>
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l9 4-9 4-9-4 9-4z" stroke="currentColor" strokeWidth="2" fill="none" />
+          <path d="M12 22V10" stroke="currentColor" strokeWidth="2" />
         </svg>
       ),
     },
   ];
 
   return (
-    <div className="bg-gray-50 py-12">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-4">Frequently Asked Questions</h1>
-        <p className="text-center text-gray-600 mb-12">
-          Find answers to common questions about Cryptoseed.ai and our services.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {faqItems.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="bg-blue-100 p-3 rounded-full inline-block">
-                {item.icon}
-              </div>
-              <h2 className="text-2xl font-bold mt-6 mb-4">{item.question}</h2>
-              <p className="text-gray-600">{item.answer}</p>
-            </div>
-          ))}
-        </div>
+    <div className="faq-container">
+      <h1 className="faq-title">Preguntas Frecuentes</h1>
+      <div className="faq-grid">
+        {faqItems.map((item, index) => (
+          <div key={index} className="faq-item">
+            <div className="faq-icon">{item.icon}</div>
+            <h2 className="faq-question">{item.question}</h2>
+            <p className="faq-answer">{item.answer}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

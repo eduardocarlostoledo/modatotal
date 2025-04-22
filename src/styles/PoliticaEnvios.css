@@ -1,49 +1,44 @@
-.privacidad-container {
+.envios-container {
     max-width: 1200px;
     margin: 200px auto;
     padding: 20px;
     font-family: 'Arial', sans-serif;
   }
   
-  .privacidad-titulo {
+  .envios-titulo {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 40px;
     color: #101629;
+    margin-bottom: 40px;
   }
   
-  .privacidad-grid {
+  .envios-grid {
     display: grid;
     gap: 24px;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
   
-  .privacidad-card {
+  .envios-card {
     background-color: #fff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #e5e5e5;
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
   }
   
-  .privacidad-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  .envios-card:hover {
+    transform: translateY(-4px);
   }
   
-  .privacidad-card h2 {
+  .envios-card h2 {
     font-size: 1.4rem;
     color: #263d23;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
   
-  .privacidad-card ul {
-    padding-left: 18px;
-    color: #444;
-  }
-  
-  .privacidad-card li {
-    margin-bottom: 8px;
+  .envios-card p {
+    color: #555;
+    line-height: 1.6;
   }
   

@@ -1,0 +1,82 @@
+.pagos-container {
+    max-width: 1200px;
+    margin: 200px auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .pagos-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .icono-tarjeta {
+    margin-bottom: 16px;
+  }
+  
+  .pagos-titulo {
+    font-size: 2.5rem;
+    color: #101629;
+    margin-bottom: 10px;
+  }
+  
+  .pagos-subtitulo {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .pagos-medios {
+    background-color: #f9f9f9;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+  }
+  
+  .pagos-medios h2 {
+    margin-bottom: 12px;
+    color: #263d23;
+  }
+  
+  .pagos-medios ul {
+    list-style: none;
+    padding-left: 0;
+    color: #444;
+  }
+  
+  .pagos-medios li {
+    margin-bottom: 8px;
+  }
+  
+  .pagos-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .pagos-card {
+    background-color: #ffffff;
+    border: 1px solid #e4e4e4;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .pagos-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .pagos-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #263d23;
+  }
+  
+  .pagos-card p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
