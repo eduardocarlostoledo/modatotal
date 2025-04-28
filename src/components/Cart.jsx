@@ -78,7 +78,7 @@ export default function Cart() {
       setIsLoading(true); // Activar el loader
 
       const response = await fetch(
-        `${import.meta.env.VITE_APP_BACK}/pay/create_preference`,
+        `${import.meta.env.VITE_APP_BACK}/pay/create_preference`, 
         {
           method: "POST",
           headers: {
