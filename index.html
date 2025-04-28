@@ -11,9 +11,9 @@
   <meta name="copyright" content="© 2024 El MODA TOTAL">
   <meta property="og:title" content="El MODA TOTAL - Tu tienda online de e-liquids" />
   <meta property="og:description" content="Web Site modatotal" />
-  <meta property="og:image" content="https://modatotal.netlify.appstatic/media/logoinvertido.75f18251022e0f387c98.png" />
+  <meta property="og:image" content="https://modatotal.netlify.app/static/media/logoinvertido.75f18251022e0f387c98.png" />
   <meta property="og:url" content="https://modatotal.netlify.app" />
-  <meta http-equiv="Content-Security-Policy" content="" />
+  
 
 <!-- Inyectar CSP con nonce dinámico -->
 <script>
@@ -29,15 +29,15 @@
     const metaTag = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
     if (metaTag) {
       metaTag.setAttribute("content", `
-        default-src 'self' https://sweetalert.js.org https://modatotal.netlify.app https://elgatonegropremium-back-production.up.railway.app http://localhost:5173 http://localhost:3001;
+        default-src 'self' https://sweetalert.js.org https://modatotal.netlify.app https://elgatonegropremium-back-production.up.railway.app http://localhost:5173 https://localhost:5173 https://localhost:5173 http://localhost:3001;
         script-src 'self' 'nonce-${nonce}' https://sweetalert.js.org https://http2.mlstatic.com https://api.mercadopago.com https://sdk.mercadopago.com https://apis.google.com https://accounts.google.com https://ajax.googleapis.com;
         style-src 'self' 'nonce-${nonce}' https://fonts.googleapis.com https://accounts.google.com/gsi/style;
         font-src 'self' https://fonts.gstatic.com;
-        connect-src 'self' https://api.mercadopago.com https://sdk.mercadopago.com https://accounts.google.com https://elgatonegropremium-back-production.up.railway.app http://localhost:3001;
+        connect-src 'self' https://api.mercadopago.com https://sdk.mercadopago.com https://accounts.google.com https://elgatonegropremium-back-production.up.railway.app  http://localhost:5173 https://localhost:5173 https://localhost:5173 http://localhost:3001 http://localhost:3001;
         img-src 'self' data: https://cdn-icons-png.flaticon.com https://sweetalert.js.org https://res.cloudinary.com;
-        frame-src 'self' https://accounts.google.com https://api.mercadopago.com https://sdk.mercadopago.com;
+        frame-src 'self' https://accounts.google.com https://api.mercadopago.com https://sdk.mercadopago.com https://www.mercadopago.com;
         media-src 'self' https://res.cloudinary.com;
-        form-action 'self' https://elgatonegropremium-back-production.up.railway.app;
+        form-action 'self' https://elgatonegropremium-back-production.up.railway.app https://modatotal.netlify.app http://localhost:5173 https://localhost:5173 https://localhost:5173 http://localhost:3001;
         object-src 'none';
       `);
     }

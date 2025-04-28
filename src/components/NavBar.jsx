@@ -11,6 +11,7 @@ import {
 } from "../redux/slices/userSlice.js";
 import { getCart } from "../redux/slices/cartSlice.js";
 import logo from "../img/logoinvertido.png";
+import logowhatsapp from "../images/logowhatsapp.png";
 
 export const NavBar = () => {
   const dispatch = useDispatch();
@@ -207,7 +208,7 @@ export const NavBar = () => {
         aria-label="Contactar por WhatsApp"
       >
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/800px-WhatsApp.svg.png"
+          src={logowhatsapp}
           alt="WhatsApp"
           width="40"
           height="40"
