@@ -1,3 +1,50 @@
+.detail-related-products {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.detail-related-title {
+  color: #c69e5d;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.detail-related-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.detail-related-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  max-width: 220px;
+  transition: transform 0.3s ease;
+}
+
+.detail-related-card:hover {
+  transform: scale(1.05);
+}
+
+.detail-related-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.detail-related-info {
+  padding: 12px;
+}
+
+.detail-related-info h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
 
 .detail-container {
   background-color: var(--color-bg);

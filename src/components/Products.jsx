@@ -30,7 +30,7 @@ export const Products = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useEffect( () => {
     const fetchData = async () => {
       setLoading(true);
       await dispatch(getAllProducts());
@@ -45,6 +45,25 @@ export const Products = () => {
     setFilteredProducts(products);
   }, [products]);
 
+//para depurar busquedas
+  useEffect(() => {
+  //console.log("🔍 Productos después del search:", products);
+}, [products]);
+
+useEffect(() => {
+  // Esto asegura que cuando products cambia (después del search), se aplique el nombre actual
+  if (name.trim()) {
+    const term = name.toLowerCase();
+    const filtered = products.filter((p) =>
+      p.name.toLowerCase().includes(term)
+    );
+    setFilteredProducts(filtered);
+  } else {
+    setFilteredProducts(products);
+  }
+}, [products, name]);
+
+
   const paginado = (pageNumber) => setCurrentPage(pageNumber);
 
   const sanitizeInput = (input) => {
@@ -55,16 +74,21 @@ export const Products = () => {
   };
 
   const handleInputChange = (e) => {
+    
+    // Sanitizar el valor de entrada
     const sanitizedValue = sanitizeInput(e.target.value);
     setName(sanitizedValue);
+    
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const sanitizedName = sanitizeInput(name);
-    dispatch(getAllProductsName(sanitizedName));
-    setCurrentPage(1);
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const sanitizedName = sanitizeInput(name);
+  dispatch(getAllProductsName(sanitizedName));
+  setCurrentPage(1);
+};
+
+
   const handleFilterBrands = (e) => {
     const value = sanitizeInput(e.target.value);
     const filtered = value === "All"

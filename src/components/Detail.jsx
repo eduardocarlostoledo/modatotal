@@ -15,11 +15,18 @@ export const Detail = () => {
   const { Name } = useParams();
   const [updateReviews, setUpdateReviews] = useState(false);
   const dispatch = useDispatch();
+const allProducts = useSelector((state) => state.products.allProducts);
+const types = useSelector((state) => state.products.types);
 
   const cart = useSelector((state) => state?.cart?.items);
   const detail = useSelector((state) => state?.products?.productDetail);
   const currentUser = useSelector((state) => state?.users?.userActive);
   const productInCart = cart?.find((p) => p.name === Name);
+
+  const relatedProducts = allProducts.filter(
+  (p) => p.type === detail?.type && p.name !== detail?.name
+).slice(0, 4); // Mostramos máximo 4
+
 
   // Sanitizar inputs
   const sanitize = (input) => {
@@ -225,6 +232,29 @@ export const Detail = () => {
             </div>
           )}
         </motion.div>
+
+        {relatedProducts.length > 0 && (
+  <motion.div className="detail-related-products" variants={itemVariants}>
+    <h2 className="detail-related-title">Productos Similares</h2>
+    <div className="detail-related-grid">
+      {relatedProducts.map((product) => (
+        <Link to={`/detail/${product.name}`} key={product.id} className="detail-related-card">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="detail-related-image"
+          />
+          <div className="detail-related-info">
+            <h3>{product.name}</h3>
+            <p>${product.price}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  </motion.div>
+)}
+
+
       </motion.div>
     </div>
   );

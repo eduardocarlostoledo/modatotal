@@ -1,7 +1,7 @@
 .products-container {
   font-family: "Arial", sans-serif;
   color: #333;
-  max-width: 1300px;
+  
   margin: 160px 10px auto;
   
 }
@@ -74,7 +74,7 @@
 .products-filter-select {
     margin-top: 7px;
   height: 42px;
-  min-width: 150px;
+  min-width: 250px;
   padding: 0 10px;
   font-size: 1rem;
   border-radius: 8px;
@@ -161,13 +161,22 @@
     max-width: 100%;
   }
 
-  .products-filter-select {
-    min-width: 100%;
+  .products-filter-select {   
+  height: 42px;
+  min-width: 250px;
+  padding: 0 10px;
+    padding-right: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  appearance: none;
+  cursor: pointer;
   }
 
   .products-filters-group {
     flex-direction: column;
-    width: 100%;
+    gap:0px
   }
 }
 
