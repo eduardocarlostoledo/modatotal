@@ -1,5 +1,8 @@
+import { motion } from "framer-motion";
+import { HiChevronDown, HiMagnifyingGlass } from "react-icons/hi2"; // Icono lupa y flecha
+
 import "../styles/Products.css";
-import { HiMagnifyingGlass } from "react-icons/hi2";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import {
@@ -111,62 +114,77 @@ export const Products = () => {
         ) : (
           <>
             <div className="products-filters-cards">
-              <div className="products-filters-container">
-                <div className="products-search-container">
-                  <input
-                    className="products-search-input"
-                    type="text"
-                    placeholder="Buscar..."
-                    value={name}
-                    onChange={handleInputChange}
-                  />
-                  <button
-                    className="products-search-button"
-                    type="submit"
-                    onClick={handleSubmit}
-                    aria-label="Buscar productos"
-                  >
-                    <HiMagnifyingGlass className="products-search-icon" />
-                  </button>
-                </div>
-                <div className="products-filters-group">
-                  <select
-                    id="filterBrandsSelect"
-                    className="products-filter-select"
-                    onChange={handleFilterBrands}
-                  >
-                    <option value="All">Marcas</option>
-                    {brands.map((b, index) => (
-                      <option key={index} value={b.name}>
-                        {b.name}
-                      </option>
-                    ))}
-                  </select>
+<div className="products-filters-container">
+  <div className="products-search-container">
+    <motion.input
+      whileFocus={{ scale: 1.02 }}
+      className="products-search-input"
+      type="text"
+      placeholder="Buscar..."
+      value={name}
+      onChange={handleInputChange}
+    />
+    <button
+      className="products-search-button"
+      type="submit"
+      onClick={handleSubmit}
+      aria-label="Buscar productos"
+    >
+      <HiMagnifyingGlass className="products-search-icon" />
+    </button>
+  </div>
 
-                  <select
-                    id="filterTypesSelect"
-                    className="products-filter-select"
-                    onChange={handleFilterTypes}
-                  >
-                    <option value="All">Tipos</option>
-                    {types.map((t, index) => (
-                      <option key={index} value={t.name}>
-                        {t.name}
-                      </option>
-                    ))}
-                  </select>
+  <motion.div
+    className="products-filters-group"
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+  >
+    {/* Marcas */}
+    <div className="products-filter-wrapper">
+      <select
+        id="filterBrandsSelect"
+        className="products-filter-select"
+        onChange={handleFilterBrands}
+      >
+        <option value="All">Marcas</option>
+        {brands.map((b, index) => (
+          <option key={index} value={b.name}>{b.name}</option>
+        ))}
+      </select>
+      <HiChevronDown className="products-filter-icon" />
+    </div>
 
-                  <select
-                    id="filterPriceSelect"
-                    className="products-filter-select"
-                    onChange={handleFilterPrice}
-                  >
-                    <option value="all">Precio</option>
-                    <option value="ASC">Más Barato</option>
-                    <option value="DES">Más Caro</option>
-                  </select>
-                </div>
-              </div>
+    {/* Tipos */}
+    <div className="products-filter-wrapper">
+      <select
+        id="filterTypesSelect"
+        className="products-filter-select"
+        onChange={handleFilterTypes}
+      >
+        <option value="All">Tipos</option>
+        {types.map((t, index) => (
+          <option key={index} value={t.name}>{t.name}</option>
+        ))}
+      </select>
+      <HiChevronDown className="products-filter-icon" />
+    </div>
+
+    {/* Precios */}
+    <div className="products-filter-wrapper">
+      <select
+        id="filterPriceSelect"
+        className="products-filter-select"
+        onChange={handleFilterPrice}
+      >
+        <option value="all">Precio</option>
+        <option value="ASC">Más Barato</option>
+        <option value="DES">Más Caro</option>
+      </select>
+      <HiChevronDown className="products-filter-icon" />
+    </div>
+  </motion.div>
+</div>
 
               <div className="products-cards-container">
                 {currentProducts.map((p, index) => (

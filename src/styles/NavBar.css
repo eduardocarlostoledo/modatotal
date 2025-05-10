@@ -17,7 +17,7 @@
 }
 
 .navbar-scrolled {
-  background-color:var(--color-primary);
+  
   box-shadow: var(--shadow-md);
   padding: 0.5rem 2rem;
   color: var(--color-text)
@@ -36,7 +36,7 @@
 
 .navbar-logo {
   transition: var(--transition);
-  filter: invert(100%) sepia(0%) saturate(100%);
+  /* filter: invert(100%) sepia(0%) saturate(100%); esto invierte los colores */
 }
 
 .navbar-logo:hover {

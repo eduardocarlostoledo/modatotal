@@ -25,8 +25,7 @@ export const NavBar = () => {
 
   useEffect(() => {
     dispatch(getCart());
-    
-    // Verificar sesión al cargar
+        
     const storedUser = localStorage.getItem("userActive");
     if (storedUser) {
       dispatch(userActive(JSON.parse(storedUser)));

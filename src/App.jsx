@@ -37,6 +37,7 @@ import { PagosPromociones } from "./components/PagosPromociones.jsx";
 import { PoliticaEnvios } from "./components/PoliticaEnvios.jsx";
 import { SeguridadPaquetes } from "./components/SeguridadPaquetes.jsx";
 import { ScrollToTop } from "./components/ScrollToTop.jsx";
+import { HistoriaTienda } from "./components/HistoriaTienda.jsx";
 
 // console.log(import.meta.env.VITE_APP_BACK)
 // console.log(import.meta.env.VITE_APP_YOUR_CLIENT_ID_LOGIN)
@@ -91,6 +92,7 @@ function App() {
         <Route path="/PagosPromociones" element={<PagosPromociones />} />
         <Route path="/PoliticaEnvios" element={<PoliticaEnvios />} />
         <Route path="/SeguridadPaquetes" element={<SeguridadPaquetes />} />
+        <Route path="/historia" element={<HistoriaTienda />} />
 
         <Route
           element={

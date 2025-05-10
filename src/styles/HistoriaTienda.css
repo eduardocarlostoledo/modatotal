@@ -1,0 +1,70 @@
+.historiaTienda-container {
+  max-width: 1200px;
+  margin: 180px auto 60px auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.historiaTienda-titulo {
+  font-size: 2.8rem;
+  color: #d3b7cc;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.historiaTienda-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.historiaTienda-grid.reverse {
+  direction: rtl;
+}
+
+.historiaTienda-grid.reverse .historiaTienda-texto,
+.historiaTienda-grid.reverse .historiaTienda-imagen {
+  direction: ltr;
+}
+
+.historiaTienda-texto {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #d3b7cc;
+  text-align: justify;
+}
+
+.historiaTienda-texto strong {
+  color: #c69e5d;
+}
+
+.historiaTienda-texto em {
+  font-style: normal;
+  color: #d3b7cc;
+  font-weight: bold;
+}
+
+.historiaTienda-imagen img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  max-height: 420px;
+}
+
+@media (max-width: 768px) {
+  .historiaTienda-grid,
+  .historiaTienda-grid.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .historiaTienda-container {
+    margin-top: 120px;
+  }
+
+  .historiaTienda-titulo {
+    font-size: 2rem;
+  }
+}

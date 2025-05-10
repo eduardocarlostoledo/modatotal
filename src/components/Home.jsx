@@ -4,6 +4,11 @@ import { motion } from "framer-motion";
 import "../styles/Home.css";
 import {
   FaShippingFast,
+  FaUserPlus,
+  FaCreditCard,
+  FaShoppingCart,
+  FaUser,
+  FaCheckCircle,
   FaPercentage,
   FaLeaf,
   FaShoppingBag,
@@ -90,8 +95,6 @@ export const Home = () => {
 
   return (
     <div className="home-container">
-      
-
       {/* Banner principal */}
       <motion.section
         className="hero-banner"
@@ -100,12 +103,37 @@ export const Home = () => {
         transition={{ duration: 0.6 }}
       ></motion.section>
 
+      <section className="values-section">
+        <h3 className="home-titulocontrapelo">Cómo comprar? </h3>
+        <div className="values-grid">         
+
+          {/* Nuevas tarjetas explicando el proceso de compra */}
+          <div className="value-card">
+            <FaUserPlus className="value-icon" />
+            <h4>Registrate e Iniciá Sesión</h4>
+            <p>Crea tu cuenta, iniciá sesión y cargá tus datos personales.</p>
+          </div>
+
+          <div className="value-card">
+            <FaShoppingCart className="value-icon" />
+            <h4>Agregá al Carrito</h4>
+            <p>Visitá la tienda, elegí tus prendas y agregalas al carrito.</p>
+          </div>
+
+          <div className="value-card">
+            <FaCreditCard className="value-icon" />
+            <h4>Pagá con MercadoPago</h4>
+            <p>Confirmá tus datos, realizá el pago y coordiná la entrega.</p>
+          </div>
+        </div>
+      </section>
+
       <section className="moda-hero-banner">
         <div className="moda-hero-content">
           <h1>Moda para Cada Estilo</h1>
           <p>Descubrí tendencias para mujer, urbana y deportiva</p>
           <Link to="/Products">
-            <button className="moda-shop-now-btn">Ver colección</button>
+            <button className="moda-shop-now-btn">Entrar a Tienda</button>
           </Link>
         </div>
       </section>
@@ -115,7 +143,7 @@ export const Home = () => {
           <h1>Moda para Ellas</h1>
           <p>Descubrí tendencias para mujer</p>
           <Link to="/Products">
-            <button className="moda-shop-now-btn">Ver colección</button>
+            <button className="moda-shop-now-btn">Entrar a Tienda</button>
           </Link>
         </div>
       </section>
@@ -123,7 +151,8 @@ export const Home = () => {
       {/* Productos Destacados */}
 
       <section className="featured-products">
-        <h2 className="home-titulocontrapelo">DESTACADOS DE LA SEMANA</h2>
+        <h2 className="home-titulocontrapelo">Lo más Vendido</h2>
+        <p>Los items más comprados por nuestros clientes</p>
         <div className="products-grid">
           {featuredProducts.map((product) => (
             <motion.div
@@ -205,11 +234,13 @@ export const Home = () => {
             <h4>Atención Personalizada</h4>
             <p>Te asesoramos en cada paso. Comprá con confianza y seguridad.</p>
           </div>
+
           <div className="value-card">
             <FaShoppingBag className="value-icon" />
             <h4>Calidad y Estilo</h4>
             <p>Prendas seleccionadas con los más altos estándares de moda.</p>
           </div>
+
           <div className="value-card">
             <FaLeaf className="value-icon" />
             <h4>Moda Sustentable</h4>
@@ -217,6 +248,7 @@ export const Home = () => {
               Confeccionamos con materiales conscientes y empaques reciclables.
             </p>
           </div>
+          
         </div>
       </section>
 
@@ -227,7 +259,9 @@ export const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
       >
-        <h3>¿Necesitás ayuda? Consultá con nuestro asistente</h3>
+        <h3>¿Necesitás ayuda? </h3>
+        <p>Consultá con nuestro Asistente IA</p>
+        <p> </p>
         <div className="chatbot-container">
           <ChatBot />
         </div>
@@ -253,7 +287,6 @@ export const Home = () => {
           Aceptamos Todos los Medios de Pago
         </h3>
         <img
-          style={{ marginTop: "20px", borderRadius: "25px" }}
           src={tarjetas}
           alt="tarjetas de crédito"
           className="credit-cards-image"

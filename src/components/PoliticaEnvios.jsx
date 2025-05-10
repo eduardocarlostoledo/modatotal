@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/PoliticaEnvios.css';
 
 export const PoliticaEnvios = () => {
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+   // para que al recargar los componentes la vista sea desde el inicio de la pagina
+    // Verificar sesión al cargar
+
   const sections = [
     {
       title: '¿Dónde entregamos?',

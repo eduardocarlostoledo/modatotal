@@ -3,7 +3,7 @@ import "../styles/ChatBot.css"; // Importamos los estilos CSS
 
 export const ChatBot = () => {
   const [messages, setMessages] = useState([
-    { text: "Hola! Soy el asistente de MODA TOTAL. ¿En qué puedo ayudarte?", sender: "bot" },
+    { text: "Hola! Soy el Sabrina. ¿En qué puedo ayudarte?", sender: "bot" },
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -44,7 +44,7 @@ export const ChatBot = () => {
   return (
     <div className="chat-container">
       {/* Header */}
-      <div className="chat-header">💬 Chat con MODA TOTAL</div>
+      <div className="chat-header">💬 Chat Moda Total</div>
 
       {/* Chat Messages */}
       <div className="chat-box">

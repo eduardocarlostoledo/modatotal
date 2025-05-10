@@ -22,7 +22,7 @@
   
   .pagos-subtitulo {
     font-size: 1.1rem;
-    color: #666;
+color: var(--color-white);
     max-width: 700px;
     margin: 0 auto;
   }

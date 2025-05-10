@@ -1,177 +1,173 @@
-/* Contenedor principal */
-.products-container 
-{
-    font-family: "Arial", sans-serif;
-    color: #333;
-    max-width: 1300px;
-    margin: 200px auto;
-        padding: 20px;
-  }
+.products-container {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  max-width: 1300px;
+  margin: 160px 10px auto;
+  
+}
 
-/* Contenido de productos */
-/*.products-content {
-    margin-top: 50px;
-} */
-
-/* Contenedor de filtros y tarjetas */
 .products-filters-cards {
-    border-radius: 20px;
+  border-radius: 16px;
+  background-color: #101629;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Contenedor de filtros */
+/* Filtros */
 .products-filters-container {
-    
-    display: flex;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Grupo de filtros */
-.products-filters-group {
-    margin: 5px;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-}
-
-/* Select de filtros */
-.products-filter-select {
-    height: 30px;
-    border-radius: 7px;
-    text-align: center;
-}
-
-.products-filter-select option {
-    background-color: white;
-    color: #252425;
-}
-
-.products-filter-select:hover {
-    background-color: #8a8a8a;
-    color: white;
-}
-
-/* Contenedor de búsqueda */
 .products-search-container {
-    display: flex;
-    margin: 5px;
+    align-items: baseline;
+  display: flex;
+  /* flex: 1 1 100%; */
+  justify-content: center;
 }
 
-/* Input de búsqueda */
 .products-search-input {
-    height: 30px;
-    border-radius: 7px;
-    border: solid 1px #8a8a8a;
-    text-align: center;
+  height: 42px;
+  padding: 0 15px;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Botón de búsqueda */
+.products-search-input:focus {
+  outline: none;
+  border: 2px solid #c69e5d;
+}
+
 .products-search-button {
-    margin: 3px;
-    font-size: 30px;
-    color: #ffffff;
-    width: 35px;
-    height: 30px;
-    border-radius: 7px;
-    border: #ffffff;
-    gap: 1px;
-    text-align: center;
-    background: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #c69e5d;
+  height: 42px;
+  width: 45px;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .products-search-button:hover {
-    background-color: #8a8a8a;
-    color: white;
+  background-color: #a9823a;
 }
 
-/* Icono de búsqueda */
-.products-search-icon {
-    pointer-events: none;
+.products-filters-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: baseline;
 }
 
-/* Contenedor de tarjetas */
+.products-filter-select {
+    margin-top: 7px;
+  height: 42px;
+  min-width: 150px;
+  padding: 0 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  appearance: none;
+  cursor: pointer;
+}
+
+.products-filter-select:hover {
+  border-color: #c69e5d;
+  background-color: #f9f9f9;
+}
+
+.products-filter-select:focus {
+  outline: none;
+  border: 2px solid #c69e5d;
+}
+
+.products-filter-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.products-filter-select {
+  appearance: none;
+  padding-right: 40px;
+}
+
+.products-filter-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #666;
+  font-size: 18px;
+}
+
+
+/* Cards */
 .products-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 /* Loader */
 .products-loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #c69e5d;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 50px auto;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Media queries */
-@media screen and (max-width: 650px) {
+/* Responsive */
+@media (max-width: 768px) {
 
-    .products-container {
-        max-width: 950px;
-        display: flex;
-        justify-content: center;
-        padding: 10px;
-        margin: 50px;
-    }
-
-
-    /* .products-content {
-        margin-top: 90px;
-    } */
-
-    .products-filters-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .products-search-container {
-        justify-content: center;
-    }
-
-    .products-filters-group {
-        flex-direction: column;
-        align-items: center;
-    }
+    
+.products-container {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  max-width: 1300px;
+  margin: 97px 10px auto;
+  
 }
 
-@media screen and (max-width: 350px) {
-    .containerPaginado {
-        margin-bottom: 0px;
-    }
-    .paginado {
-        margin-bottom: 0px;
-    }
-    .products-container{
-        margin-top: 120px;
-        margin: 90px auto;
-    }
-    .products-filters-container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .products-filters-container {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
 
-    .products-search-container {
-        justify-content: center;
-    }
+  .products-search-input {
+    max-width: 100%;
+  }
 
-    .products-filters-group {
-        flex-direction: column;
-        margin-top: 20px;
-        align-items: center;
-    }
+  .products-filter-select {
+    min-width: 100%;
+  }
+
+  .products-filters-group {
+    flex-direction: column;
+    width: 100%;
+  }
 }
+
