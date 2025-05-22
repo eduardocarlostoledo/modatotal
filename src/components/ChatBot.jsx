@@ -8,11 +8,23 @@ export const ChatBot = () => {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+const isMounted = useRef(false);
 
-  // //para q la ventana vaya directo al bot
-  // useEffect(() => {
-  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // }, [messages]);
+  const chatBoxRef = useRef(null); // NUEVO
+
+useEffect(() => {
+  if (!isMounted.current) {
+    isMounted.current = true;
+    return;
+  }
+
+  const chatBox = chatBoxRef.current;
+  if (chatBox) {
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+}, [messages]);
+
+
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -47,14 +59,16 @@ export const ChatBot = () => {
       <div className="chat-header">💬 Chat Moda Total</div>
 
       {/* Chat Messages */}
-      <div className="chat-box">
+      <div className="chat-box" ref={chatBoxRef}>
         {messages.map((msg, index) => (
           <div key={index} className={`chat-message ${msg.sender}`}>
             {msg.text}
           </div>
         ))}
         {isTyping && <div className="typing-indicator">✍️ Escribiendo...</div>}
-        <div ref={messagesEndRef}></div>
+        
+
+
       </div>
 
       {/* Input Box */}
